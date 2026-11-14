@@ -1,0 +1,159 @@
+:root {
+    --turquesa: #14B8A6;
+    --turquesa-claro: #5EEAD4;
+    --turquesa-brillo: rgba(20, 184, 166, 0.4);
+    --rojo: #E11D48;
+    --rojo-claro: #FDA4AF;
+    --rojo-brillo: rgba(225, 29, 72, 0.4);
+    --fondo: #090D16;
+    --tarjeta: rgba(22, 31, 50, 0.75);
+    --texto: #F8FAFC;
+    --texto-suave: #E2E8F0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fondo);
+    background-image: 
+        radial-gradient(circle at 10% 15%, rgba(20, 184, 166, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, rgba(225, 29, 72, 0.18) 0%, transparent 45%);
+    color: var(--texto);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particulas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+.particula {
+    position: absolute; bottom: -30px; opacity: 0.75;
+    animation: flotarArriba linear forwards;
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+@keyframes flotarArriba {
+    0% { transform: translateY(0) scale(0.7) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.85; }
+    100% { transform: translateY(-108vh) scale(1.3) rotate(25deg); opacity: 0; }
+}
+
+.contenedor-principal { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; text-align: center; }
+
+.insignia-amor {
+    display: inline-flex; align-items: center; gap: 10px; padding: 0.5rem 1.4rem;
+    border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); margin-bottom: 1.2rem;
+}
+
+.punto-turquesa { width: 8px; height: 8px; border-radius: 50%; background-color: var(--turquesa); box-shadow: 0 0 8px var(--turquesa); }
+.punto-rojo { width: 8px; height: 8px; border-radius: 50%; background-color: var(--rojo); box-shadow: 0 0 8px var(--rojo); }
+
+h1 {
+    font-family: 'Dancing Script', cursive; font-size: 4.3rem;
+    background: linear-gradient(90deg, var(--turquesa-claro), #ffffff, var(--rojo-claro));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.8rem; line-height: 1.15;
+}
+
+.apodos-destacados { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.35rem; color: #fff; margin-bottom: 1.2rem; }
+.subtitulo { color: var(--texto-suave); max-width: 660px; margin: 0 auto 4rem; font-size: 1.02rem; line-height: 1.7; font-weight: 300; }
+
+.texto-turquesa { color: var(--turquesa-claro); font-weight: 600; }
+.texto-rojo { color: var(--rojo-claro); font-weight: 600; }
+
+.galeria { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 4.5rem; }
+
+.marco-foto {
+    background: var(--tarjeta); backdrop-filter: blur(14px); padding: 1.4rem 1.4rem 2rem;
+    border-radius: 24px; width: 360px; transition: all 0.45s ease; position: relative;
+}
+
+.cinta-decorativa {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    padding: 0.3rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: #fff; z-index: 2; white-space: nowrap;
+}
+
+.cinta-turquesa { background: linear-gradient(90deg, #0D9488, var(--turquesa)); box-shadow: 0 4px 15px var(--turquesa-brillo); }
+.cinta-rojo { background: linear-gradient(90deg, #BE123C, var(--rojo)); box-shadow: 0 4px 15px var(--rojo-brillo); }
+
+.marco-turquesa { border: 2px solid rgba(20, 184, 166, 0.7); box-shadow: 0 15px 35px var(--turquesa-brillo); transform: rotate(-2.5deg); }
+.marco-rojo { border: 2px solid rgba(225, 29, 72, 0.7); box-shadow: 0 15px 35px var(--rojo-brillo); transform: rotate(2.5deg); }
+
+.contenedor-img { width: 100%; height: 340px; border-radius: 16px; overflow: hidden; margin-bottom: 1.3rem; }
+.contenedor-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.info-foto { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.corazon-latido { font-size: 1.5rem; animation: latir 1.4s infinite ease-in-out; }
+.corazon-latido.turquesa { color: var(--turquesa-claro); }
+.corazon-latido.rojo { color: var(--rojo-claro); }
+
+@keyframes latir {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.28); }
+}
+
+.info-foto p { font-size: 0.93rem; color: var(--texto-suave); font-style: italic; line-height: 1.5; }
+
+.seccion-promesas { margin-bottom: 4.5rem; }
+.seccion-promesas h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin-bottom: 2rem; }
+
+.tarjetas-grid { display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; }
+.tarjeta-amor { width: 270px; height: 200px; perspective: 1000px; cursor: pointer; }
+
+.tarjeta-cara {
+    width: 100%; height: 100%; position: absolute; backface-visibility: hidden;
+    border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backdrop-filter: blur(12px);
+}
+
+.frente { background: var(--tarjeta); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 25px rgba(0,0,0,0.35); }
+.frente-turquesa { border-bottom: 4px solid var(--turquesa); }
+.frente-mixto { border-bottom: 4px solid #fff; }
+.frente-rojo { border-bottom: 4px solid var(--rojo); }
+
+.icono-tarjeta { font-size: 2.4rem; margin-bottom: 0.6rem; }
+.frente h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.4rem; }
+.frente small { color: var(--texto-suave); font-size: 0.8rem; }
+
+.atras { transform: rotateY(180deg); color: #fff; font-size: 0.92rem; line-height: 1.55; font-style: italic; }
+.atras-turquesa { background: linear-gradient(145deg, rgba(13, 148, 136, 0.9), rgba(15, 23, 42, 0.95)); border: 2px solid var(--turquesa); }
+.atras-mixto { background: linear-gradient(145deg, rgba(20, 184, 166, 0.8), rgba(225, 29, 72, 0.85)); border: 2px solid rgba(255, 255, 255, 0.5); }
+.atras-rojo { background: linear-gradient(145deg, rgba(190, 18, 60, 0.9), rgba(15, 23, 42, 0.95)); border: 2px solid var(--rojo); }
+
+.tarjeta-amor.volteada .frente { transform: rotateY(180deg); }
+.tarjeta-amor.volteada .atras { transform: rotateY(360deg); }
+
+.boton-romantico {
+    background: linear-gradient(135deg, var(--turquesa), var(--rojo));
+    color: white; border: none; padding: 1.1rem 2.6rem; font-size: 1.1rem;
+    font-weight: 600; font-family: 'Poppins', sans-serif; border-radius: 50px;
+    cursor: pointer; box-shadow: 0 10px 30px rgba(225, 29, 72, 0.4); transition: all 0.3s ease;
+}
+
+.carta-oculta { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.9s ease; margin-top: 0; }
+.carta-oculta.visible { max-height: 1100px; opacity: 1; margin-top: 3rem; }
+
+.carta-papel {
+    background: linear-gradient(160deg, rgba(22, 31, 50, 0.95), rgba(11, 17, 32, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.15); border-top: 4px solid var(--turquesa);
+    border-bottom: 4px solid var(--rojo); border-radius: 22px; padding: 2.8rem;
+    max-width: 680px; margin: 0 auto; text-align: left; line-height: 1.85;
+}
+
+.encabezado-carta h3 {
+    font-family: 'Dancing Script', cursive; font-size: 2.4rem;
+    background: linear-gradient(90deg, var(--turquesa-claro), var(--rojo-claro));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.3rem;
+}
+
+.carta-papel p { margin-bottom: 1.3rem; color: var(--texto-suave); font-size: 1.02rem; }
+.frase-cierre {
+    text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem;
+    color: var(--turquesa-claro); padding: 1rem; margin: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.carta-papel .firma { margin-top: 1.5rem; text-align: right; color: var(--texto); }
+.carta-papel .firma strong { color: var(--rojo-claro); font-size: 1.1rem; }
